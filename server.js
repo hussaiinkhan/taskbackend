@@ -19,10 +19,12 @@ app.use(express.json());
 // Configure multer for file uploads
 //const upload = multer({ dest: 'uploads/' });
 
-app.use(cors({      //this is used to access the backend apis from front-end
-    origin:'http://localhost:3000',  //since our front-end will run on port 3000
-    credentials : true
-}))
+app.use(cors({
+    origin: 'https://yetisplustask.vercel.app', // Replace with your client’s domain
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true, // If your requests include credentials
+    allowedHeaders: 'Content-Type, Authorization'
+}));
 
 // Route-specific middleware
 //app.use('/api/admin/ads', upload.single('image'));
